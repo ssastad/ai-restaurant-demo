@@ -6,7 +6,7 @@ async function send() {
 
   chat.innerHTML += `<div class='msg you'>Du: ${msg}</div>`;
 
-  const response = await fetch("ai-restaurant-demo-production.up.railway.app/chat", {
+  const response = await fetch("https://ai-restaurant-demo-production.up.railway.app/chat", {
     method:"POST",
     headers: {"Content-Type":"application/json"},
     body: JSON.stringify({ message: msg, restaurant_id:"demo" })
@@ -17,6 +17,7 @@ async function send() {
   input.value = "";
   chat.scrollTop = chat.scrollHeight;
 }
+
 
 
 
