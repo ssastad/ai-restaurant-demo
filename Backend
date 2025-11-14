@@ -1,0 +1,12 @@
+ai-restaurant-demo/
+│
+├─ backend/            ← All backend-kode for AI + chat
+│   ├─ index.js        ← Hovedserver (Express API)
+│   ├─ package.json    ← Node.js-avhengigheter
+│   └─ .env.example    ← Miljøvariabler (OpenAI nøkkel)
+│
+├─ frontend/           ← Alt som skal vises på nettsiden
+│   ├─ index.html      ← Demo-side med input og chatlog
+│   └─ widget.js       ← JS-kode for å snakke med backend
+│
+└─ README.md           ← Kort forklaring på prosjektet
