@@ -30,7 +30,7 @@ app.post("/chat", async (req, res) => {
         "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: "gpt-4o-mini", // Kan endres til annen modell
+        model: "gpt-4o-mini",
         messages: [
           { role: "system", content: "Du er en AI som hjelper med restaurantbestillinger." },
           { role: "user", content: message }
@@ -40,13 +40,12 @@ app.post("/chat", async (req, res) => {
 
     const data = await aiResponse.json();
 
-    // Sjekk at data.choices finnes før vi leser
+    // Sjekk at data.choices finnes
     if (!data.choices || data.choices.length === 0) {
       console.error("Ingen valg fra OpenAI:", data);
       return res.status(500).json({ reply: "Ingen svar fra AI, sjekk API-nøkkel eller modell" });
     }
 
-    // Send svar til frontend
     res.json({ reply: data.choices[0].message.content });
 
   } catch (err) {
@@ -58,4 +57,5 @@ app.post("/chat", async (req, res) => {
 // Start server på riktig port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Backend kjører på port ${PORT}`));
+
 
